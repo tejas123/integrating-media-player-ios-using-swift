@@ -33,9 +33,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(ipcVideo, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary)
-    {
-        urlVideo = info.objectForKey(UIImagePickerControllerMediaURL) as NSURL
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        urlVideo = info[UIImagePickerControllerMediaURL] as! NSURL
         self.dismissViewControllerAnimated(true, completion: nil)
         
         objMoviePlayerController = MPMoviePlayerController(contentURL: urlVideo)
