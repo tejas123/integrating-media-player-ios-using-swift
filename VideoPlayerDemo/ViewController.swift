@@ -25,15 +25,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func btnChooseVideoTapped(sender: AnyObject)
     {
-        var ipcVideo = UIImagePickerController()
+        let ipcVideo = UIImagePickerController()
         ipcVideo.delegate = self
         ipcVideo.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        var kUTTypeMovieAnyObject : AnyObject = kUTTypeMovie as AnyObject
-        ipcVideo.mediaTypes = [kUTTypeMovieAnyObject]
+        let kUTTypeMovieAnyObject : AnyObject = kUTTypeMovie as AnyObject
+        ipcVideo.mediaTypes = [kUTTypeMovieAnyObject as! String]
         self.presentViewController(ipcVideo, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         urlVideo = info[UIImagePickerControllerMediaURL] as! NSURL
         self.dismissViewControllerAnimated(true, completion: nil)
         
